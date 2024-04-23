@@ -1,7 +1,6 @@
 import { Imagem, Precos, Titulo } from './styles'
 
 import bannerImg from '../../assets/images/banner-homem-aranha.png'
-import { TagContainer } from '../Tag/style'
 import Tag from '../Tag'
 import Button from '../Button'
 
