@@ -22,6 +22,7 @@ export const Action = styled.div`
 
 export const Item = styled.li`
   position: relative;
+  cursor: zoom-in;
 
   > img {
     // > para ser valido apenas para o filho direto da li

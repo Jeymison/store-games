@@ -1,10 +1,10 @@
 import { ButtonContainer, ButtonLink } from './styles'
 
 export type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   title: string
-  to?: string //Para enviar para algum link e caminho
-  onclick?: () => void //Para receber uma funcao
+  to?: string
+  onClick?: () => void
   children: string
   variant?: 'primary' | 'secondary'
 }
@@ -13,17 +13,17 @@ const Button = ({
   type,
   title,
   to,
-  onclick,
+  onClick,
   children,
   variant = 'primary'
 }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
       <ButtonContainer
         variant={variant}
-        type="button"
+        type={type}
         title={title}
-        onClick={onclick}
+        onClick={onClick}
       >
         {children}
       </ButtonContainer>
