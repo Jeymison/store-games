@@ -1,10 +1,10 @@
 import Tag from '../Tag'
 import Button from '../Button'
 
-import { formataPreco } from '../ProductsList'
 import { useGetFeaturedGameQuery } from '../../services/api'
+import { parseToBrl } from '../../utils'
 
-import { Imagem, Precos, Titulo } from './styles'
+import { Image, Prices, Title } from './styles'
 
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
@@ -14,17 +14,17 @@ const Banner = () => {
   }
 
   return (
-    <Imagem style={{ backgroundImage: `url(${game.media.cover})` }}>
+    <Image style={{ backgroundImage: `url(${game.media.cover})` }}>
       <div className="container">
         <Tag size="big">Destaque do dia</Tag>
         <div>
-          <Titulo>{game.name}</Titulo>
-          <Precos>
+          <Title>{game.name}</Title>
+          <Prices>
             {' '}
-            De <span>{formataPreco(game.prices.old)}</span>
+            De <span>{parseToBrl(game.prices.old)}</span>
             <br />
-            por apenas {formataPreco(game.prices.current)}
-          </Precos>
+            por apenas {parseToBrl(game.prices.current)}
+          </Prices>
         </div>
         <Button
           type="link"
@@ -34,7 +34,7 @@ const Banner = () => {
           Aproveitar
         </Button>
       </div>
-    </Imagem>
+    </Image>
   )
 }
 
