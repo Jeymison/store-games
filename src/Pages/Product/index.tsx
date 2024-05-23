@@ -3,15 +3,20 @@ import { useParams } from 'react-router-dom' // funcao para o parametro
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
+import Loader from '../../components/Loader'
 
 import { useGetGameQuery } from '../../services/api'
 
+type GamesParams = {
+  id: string
+}
+
 const ProductDetails = () => {
-  const { id } = useParams() // chama o parametro id
-  const { data: game } = useGetGameQuery(id!)
+  const { id } = useParams() as GamesParams // chama o parametro id
+  const { data: game } = useGetGameQuery(id)
 
   if (!game) {
-    return <h2>Carregando...</h2>
+    return <Loader />
   }
 
   return (
