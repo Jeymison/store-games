@@ -5,7 +5,6 @@ import closerIcon from '../../assets/images/fechar.png'
 import zoom from '../../assets/images/zoom.png'
 
 import Section from '../Section'
-import { GalleryItem } from '../../Pages/Home'
 
 import { Action, Item, Items, Modal, ModalContent } from './styles'
 
